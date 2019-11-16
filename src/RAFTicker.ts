@@ -13,21 +13,21 @@ export class RAFTicker {
 
   static addEventListener(
     type: string,
-    listener: (event: Event) => void
+    listener: (event: RAFTickerEvent) => void
   ): void {
     this._dispatcher.addEventListener(type, listener);
   }
 
   static hasEventListener(
     type: string,
-    listener: (event: Event) => void
+    listener: (event: RAFTickerEvent) => void
   ): boolean {
     return this._dispatcher.hasEventListener(type, listener);
   }
 
   static removeEventListener(
     type: string,
-    listener: (event: Event) => void
+    listener: (event: RAFTickerEvent) => void
   ): void {
     this._dispatcher.removeEventListener(type, listener);
   }
