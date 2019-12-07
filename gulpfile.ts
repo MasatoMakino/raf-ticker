@@ -8,7 +8,7 @@ const copy = () => {
   return src(copyGlob, { base: "./demoSrc/" }).pipe(dest("./docs/demo"));
 };
 
-const { bundleDevelopment, watchBundle } = require("gulptask-webpack")(
+const { bundleDevelopment, watchBundle } = require("gulptask-webpack").get(
   "./webpack.config.js"
 );
 const { tsc, tscClean, watchTsc } = require("gulptask-tsc").get();
