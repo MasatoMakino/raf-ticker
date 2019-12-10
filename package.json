@@ -24,7 +24,7 @@
     "build": "gulp build && npm run doc:card",
     "build:clean": "gulp build_clean && npm run doc:card",
     "doc:card": "repoimg -n MasatoMakino/RAF-ticker -o ./docs/card.png",
-    "checkout:docs": "git checkout HEAD ./docs/api/ ./docs/demo/"
+    "checkout:docs": "git checkout HEAD ./docs/"
   },
   "husky": {
     "hooks": {
