@@ -1,4 +1,4 @@
-import { RAFTicker, RAFTickerEventType } from "../bin";
+import { RAFTicker, RAFTickerEventType } from "../esm";
 
 export class Demo {
   constructor() {
