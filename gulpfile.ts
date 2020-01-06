@@ -9,7 +9,9 @@ const copy = () => {
   return src(copyGlob, { base: "./demoSrc/" }).pipe(dest("./docs/demo"));
 };
 
-const { tsc, tscClean, watchTsc } = require("gulptask-tsc").get();
+const { tsc, tscClean, watchTsc } = require("gulptask-tsc").get({
+  projects: ["./tsconfig.json", "./tsconfig.esm.json"]
+});
 
 const watchTasks = async () => {
   watchDemo();
@@ -18,5 +20,6 @@ const watchTasks = async () => {
 };
 
 exports.start_dev = series(watchTasks, server);
-exports.build = series(tsc, copy, bundleDemo, doc);
-exports.build_clean = series(tscClean, copy, bundleDemo, doc);
+exports.build = series(parallel(tsc, copy), bundleDemo, doc);
+exports.build_clean = series(parallel(tscClean, copy), bundleDemo, doc);
+exports.tsc = tsc;

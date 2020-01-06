@@ -1,3 +1,5 @@
 .idea
 tsconfig.tsbuildinfo
 node_modules
+*.tsbuildinfo
+yarn-error.log

@@ -1,9 +1,14 @@
 {
   "name": "raf-ticker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple ticker with requestAnimationFrame.",
-  "main": "./bin/index.js",
-  "types": "./bin/index.d.ts",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "esm"
+  ],
   "repository": "https://MasatoMakino@github.com/MasatoMakino/RAF-ticker.git",
   "author": "MasatoMakino <unagiinu.g@gmail.com>",
   "license": "MIT",
