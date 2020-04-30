@@ -15,7 +15,7 @@ export class RAFTicker {
     this._dispatcher.removeEventListener(type, listener);
   }
 }
-RAFTicker.onTick = timestamp => {
+RAFTicker.onTick = (timestamp) => {
   if (RAFTicker._lastUpdateTimestamp == null) {
     RAFTicker._lastUpdateTimestamp = timestamp;
   }

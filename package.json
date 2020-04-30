@@ -1,6 +1,6 @@
 {
   "name": "raf-ticker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple ticker with requestAnimationFrame.",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -18,11 +18,11 @@
     "gulptask-dev-server": "https://github.com/MasatoMakino/gulptask-dev-server.git",
     "gulptask-tsc": "https://github.com/MasatoMakino/gulptask-tsc.git",
     "gulptask-tsdoc": "https://github.com/MasatoMakino/gulptask-tsdoc.git",
-    "husky": "^3.1.0",
-    "prettier": "^1.19.1",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.3"
+    "ts-node": "^8.9.1",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start:dev": "gulp start_dev",

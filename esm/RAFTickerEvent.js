@@ -1,5 +1,5 @@
 export var RAFTickerEventType;
-(function(RAFTickerEventType) {
+(function (RAFTickerEventType) {
   RAFTickerEventType["onBeforeTick"] = "onBeforeTick";
   RAFTickerEventType["tick"] = "tick";
   RAFTickerEventType["onAfterTick"] = "onAfterTick";

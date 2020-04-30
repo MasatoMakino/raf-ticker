@@ -1,7 +1,7 @@
 export declare enum RAFTickerEventType {
   onBeforeTick = "onBeforeTick",
   tick = "tick",
-  onAfterTick = "onAfterTick"
+  onAfterTick = "onAfterTick",
 }
 export declare class RAFTickerEvent {
   type: RAFTickerEventType;
