@@ -79,9 +79,9 @@
 				<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
 					<h3>How to use</h3>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { RAFTicker, RAFTickerEventType } <span class="hljs-keyword">from</span> <span class="hljs-string">"raf-ticker"</span>;
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { RAFTicker, RAFTickerEventType } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;raf-ticker&quot;</span>;
 
-RAFTicker.addEventListener(RAFTickerEventType.tick, e =&gt; {
+RAFTicker.addEventListener(RAFTickerEventType.tick, <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(e);
 });</code></pre>
 				<p><a href="https://masatomakino.github.io/raf-ticker/api/">API document</a></p>
@@ -141,6 +141,5 @@ RAFTicker.addEventListener(RAFTickerEventType.tick, e =&gt; {
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
