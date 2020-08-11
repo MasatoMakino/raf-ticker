@@ -5,8 +5,7 @@ export var RAFTickerEventType;
   RAFTickerEventType["onAfterTick"] = "onAfterTick";
 })(RAFTickerEventType || (RAFTickerEventType = {}));
 export class RAFTickerEvent {
-  constructor(type, timestamp, delta) {
-    this.type = type;
+  constructor(timestamp, delta) {
     this.timestamp = timestamp;
     this.delta = delta;
   }

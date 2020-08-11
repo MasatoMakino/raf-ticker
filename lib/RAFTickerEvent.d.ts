@@ -4,9 +4,8 @@ export declare enum RAFTickerEventType {
   onAfterTick = "onAfterTick",
 }
 export declare class RAFTickerEvent {
-  type: RAFTickerEventType;
   delta: number;
   timestamp: number;
-  constructor(type: RAFTickerEventType, timestamp: number, delta: number);
+  constructor(timestamp: number, delta: number);
 }
 //# sourceMappingURL=RAFTickerEvent.d.ts.map

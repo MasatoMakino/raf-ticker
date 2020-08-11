@@ -2,16 +2,20 @@ import { RAFTicker, RAFTickerEventType } from "../esm";
 
 export class Demo {
   constructor() {
-    RAFTicker.addEventListener(RAFTickerEventType.onBeforeTick, e => {
-      console.log(`${e.type} : ${e.delta}, ${e.timestamp}`);
+    RAFTicker.on(RAFTickerEventType.onBeforeTick, (e) => {
+      console.log(
+        `${RAFTickerEventType.onBeforeTick} : ${e.delta}, ${e.timestamp}`
+      );
     });
 
-    RAFTicker.addEventListener(RAFTickerEventType.tick, e => {
-      console.log(`${e.type} : ${e.delta}, ${e.timestamp}`);
+    RAFTicker.on(RAFTickerEventType.tick, (e) => {
+      console.log(`${RAFTickerEventType.tick} : ${e.delta}, ${e.timestamp}`);
     });
 
-    RAFTicker.addEventListener(RAFTickerEventType.onAfterTick, e => {
-      console.log(`${e.type} : ${e.delta}, ${e.timestamp}`);
+    RAFTicker.on(RAFTickerEventType.onAfterTick, (e) => {
+      console.log(
+        `${RAFTickerEventType.onAfterTick} : ${e.delta}, ${e.timestamp}`
+      );
     });
   }
 }

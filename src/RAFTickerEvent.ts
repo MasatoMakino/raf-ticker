@@ -1,15 +1,13 @@
 export enum RAFTickerEventType {
   onBeforeTick = "onBeforeTick",
   tick = "tick",
-  onAfterTick = "onAfterTick"
+  onAfterTick = "onAfterTick",
 }
 
 export class RAFTickerEvent {
-  public type: RAFTickerEventType;
   public delta: number;
   public timestamp: number;
-  constructor(type: RAFTickerEventType, timestamp: number, delta: number) {
-    this.type = type;
+  constructor(timestamp: number, delta: number) {
     this.timestamp = timestamp;
     this.delta = delta;
   }

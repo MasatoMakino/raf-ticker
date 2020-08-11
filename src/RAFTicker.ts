@@ -1,35 +1,127 @@
 import { RAFTickerEvent, RAFTickerEventType } from "./RAFTickerEvent";
-import { EventDispatcher } from "./EventDispatcher";
+import EventEmitter from "eventemitter3";
 
 export class RAFTicker {
-  private static _dispatcher: EventDispatcher;
+  private static _dispatcher: EventEmitter;
   private static _lastUpdateTimestamp: number;
   protected static _id: number;
 
   public static initialize() {
-    this._dispatcher = new EventDispatcher();
+    if (this._dispatcher != null) return;
+    this._dispatcher = new EventEmitter();
     RAFTicker.onTick(performance.now());
   }
 
-  static addEventListener(
-    type: string,
+  static addListener(
+    type: RAFTickerEventType,
     listener: (event: RAFTickerEvent) => void
   ): void {
-    this._dispatcher.addEventListener(type, listener);
+    this._dispatcher.on(type, listener);
   }
 
-  static hasEventListener(
-    type: string,
+  /**
+   * Alias for addListener
+   *
+   * @param type
+   * @param listener
+   */
+  static on(
+    type: RAFTickerEventType,
+    listener: (event: RAFTickerEvent) => void
+  ) {
+    this.addListener(type, listener);
+  }
+
+  /**
+   * Alias for addListener
+   *
+   * @deprecated use addListener
+   * @param type
+   * @param listener
+   */
+  static addEventListener(
+    type: RAFTickerEventType,
+    listener: (event: RAFTickerEvent) => void
+  ) {
+    this.addListener(type, listener);
+  }
+
+  /**
+   *
+   * @param type
+   * @param listener
+   */
+  static hasListener(
+    type: RAFTickerEventType,
     listener: (event: RAFTickerEvent) => void
   ): boolean {
-    return this._dispatcher.hasEventListener(type, listener);
+    const listeners = this._dispatcher.listeners(type);
+    return listeners.includes(listener);
   }
 
-  static removeEventListener(
-    type: string,
+  /**
+   * Alias for hasListener
+   *
+   * @deprecated use hasListener
+   * @param type
+   * @param listener
+   */
+  static hasEventListener(
+    type: RAFTickerEventType,
+    listener: (event: RAFTickerEvent) => void
+  ): boolean {
+    return this.hasListener(type, listener);
+  }
+
+  /**
+   * Removes the specified listener
+   *
+   * @param type
+   * @param listener
+   */
+  static removeListener(
+    type: RAFTickerEventType,
     listener: (event: RAFTickerEvent) => void
   ): void {
-    this._dispatcher.removeEventListener(type, listener);
+    this._dispatcher.removeListener(type, listener);
+  }
+
+  /**
+   * Alias for removeListener
+   *
+   * @param type
+   * @param listener
+   */
+  static off(
+    type: RAFTickerEventType,
+    listener: (event: RAFTickerEvent) => void
+  ): void {
+    this.removeListener(type, listener);
+  }
+
+  /**
+   * Alias for removeListener
+   *
+   * @deprecated use removeListener
+   * @param type
+   * @param listener
+   */
+  static removeEventListener(
+    type: RAFTickerEventType,
+    listener: (event: RAFTickerEvent) => void
+  ): void {
+    this.removeListener(type, listener);
+  }
+
+  /**
+   * イベントを発効する。
+   * この関数はアプリケーションから利用することはなく、主に単体テストのために使用する。
+   *
+   * @param type
+   * @param event
+   */
+  public static emit(type: RAFTickerEventType, event: RAFTickerEvent): void {
+    this._dispatcher.emit(type, event);
   }
 
   private static onTick = (timestamp?: number) => {
@@ -38,14 +130,17 @@ export class RAFTicker {
     }
     const delta = timestamp - RAFTicker._lastUpdateTimestamp;
 
-    RAFTicker._dispatcher.dispatchEvent(
-      new RAFTickerEvent(RAFTickerEventType.onBeforeTick, timestamp, delta)
+    RAFTicker.emit(
+      RAFTickerEventType.onBeforeTick,
+      new RAFTickerEvent(timestamp, delta)
     );
-    RAFTicker._dispatcher.dispatchEvent(
-      new RAFTickerEvent(RAFTickerEventType.tick, timestamp, delta)
+    RAFTicker.emit(
+      RAFTickerEventType.tick,
+      new RAFTickerEvent(timestamp, delta)
     );
-    RAFTicker._dispatcher.dispatchEvent(
-      new RAFTickerEvent(RAFTickerEventType.onAfterTick, timestamp, delta)
+    RAFTicker.emit(
+      RAFTickerEventType.onAfterTick,
+      new RAFTickerEvent(timestamp, delta)
     );
 
     RAFTicker._lastUpdateTimestamp = timestamp;

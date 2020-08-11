@@ -1,6 +1,6 @@
 {
   "name": "raf-ticker",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Simple ticker with requestAnimationFrame.",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -12,6 +12,9 @@
   "repository": "https://MasatoMakino@github.com/MasatoMakino/RAF-ticker.git",
   "author": "MasatoMakino <unagiinu.g@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "eventemitter3": "^4.0.4"
+  },
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulptask-demo-page": "https://github.com/MasatoMakino/gulptask-demo-page.git",

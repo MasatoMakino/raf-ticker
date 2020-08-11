@@ -1,6 +1,66 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/ 		var executeModules = data[2];
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
+/******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		return result;
+/******/ 	}
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"demo": 0
+/******/ 	};
+/******/
+/******/ 	var deferredModules = [];
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -79,9 +139,18 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./demoSrc/demo.js");
+/******/
+/******/ 	// add entry module to deferred list
+/******/ 	deferredModules.push(["./demoSrc/demo.js","vendor"]);
+/******/ 	// run deferred modules when ready
+/******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -94,19 +163,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Demo\", function() { return Demo; });\n/* harmony import */ var _esm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../esm */ \"./esm/index.js\");\n\nclass Demo {\n  constructor() {\n    _esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTicker\"].addEventListener(_esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onBeforeTick, e => {\n      console.log(`${e.type} : ${e.delta}, ${e.timestamp}`);\n    });\n    _esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTicker\"].addEventListener(_esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].tick, e => {\n      console.log(`${e.type} : ${e.delta}, ${e.timestamp}`);\n    });\n    _esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTicker\"].addEventListener(_esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onAfterTick, e => {\n      console.log(`${e.type} : ${e.delta}, ${e.timestamp}`);\n    });\n  }\n\n}\n\nwindow.onload = () => {\n  const demo = new Demo();\n};\n\n//# sourceURL=webpack:///./demoSrc/demo.js?");
-
-/***/ }),
-
-/***/ "./esm/EventDispatcher.js":
-/*!********************************!*\
-  !*** ./esm/EventDispatcher.js ***!
-  \********************************/
-/*! exports provided: EventDispatcher */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"EventDispatcher\", function() { return EventDispatcher; });\n/**\n * Based on mrdoob/eventdispatcher.js\n * https://github.com/mrdoob/eventdispatcher.js\n * Copyright（c）mrdoob / http://mrdoob.com/\n * Licensed under MIT ( https://github.com/mrdoob/eventdispatcher.js/blob/master/LICENSE )\n */\nclass EventDispatcher {\n  addEventListener(type, listener) {\n    if (this._listeners === undefined) this._listeners = {};\n    const listeners = this._listeners;\n\n    if (listeners[type] === undefined) {\n      listeners[type] = [];\n    }\n\n    if (listeners[type].indexOf(listener) === -1) {\n      listeners[type].push(listener);\n    }\n  }\n\n  hasEventListener(type, listener) {\n    if (this._listeners === undefined) return false;\n    const listeners = this._listeners;\n    return listeners[type] !== undefined && listeners[type].indexOf(listener) !== -1;\n  }\n\n  removeEventListener(type, listener) {\n    if (this._listeners === undefined) return;\n    const listeners = this._listeners;\n    const listenerArray = listeners[type];\n\n    if (listenerArray !== undefined) {\n      const index = listenerArray.indexOf(listener);\n\n      if (index !== -1) {\n        listenerArray.splice(index, 1);\n      }\n    }\n  }\n\n  dispatchEvent(event) {\n    if (this._listeners === undefined) return;\n    const listeners = this._listeners;\n    const listenerArray = listeners[event.type];\n\n    if (listenerArray !== undefined) {\n      event.target = this;\n      const array = listenerArray.slice(0);\n\n      for (var i = 0, l = array.length; i < l; i++) {\n        array[i].call(this, event);\n      }\n    }\n  }\n\n}\n\n//# sourceURL=webpack:///./esm/EventDispatcher.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Demo\", function() { return Demo; });\n/* harmony import */ var _esm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../esm */ \"./esm/index.js\");\n\nclass Demo {\n  constructor() {\n    _esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTicker\"].on(_esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onBeforeTick, e => {\n      console.log(`${_esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onBeforeTick} : ${e.delta}, ${e.timestamp}`);\n    });\n    _esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTicker\"].on(_esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].tick, e => {\n      console.log(`${_esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].tick} : ${e.delta}, ${e.timestamp}`);\n    });\n    _esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTicker\"].on(_esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onAfterTick, e => {\n      console.log(`${_esm__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onAfterTick} : ${e.delta}, ${e.timestamp}`);\n    });\n  }\n\n}\n\nwindow.onload = () => {\n  const demo = new Demo();\n};\n\n//# sourceURL=webpack:///./demoSrc/demo.js?");
 
 /***/ }),
 
@@ -118,7 +175,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RAFTicker\", function() { return RAFTicker; });\n/* harmony import */ var _RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RAFTickerEvent */ \"./esm/RAFTickerEvent.js\");\n/* harmony import */ var _EventDispatcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EventDispatcher */ \"./esm/EventDispatcher.js\");\n\n\nclass RAFTicker {\n  static initialize() {\n    this._dispatcher = new _EventDispatcher__WEBPACK_IMPORTED_MODULE_1__[\"EventDispatcher\"]();\n    RAFTicker.onTick(performance.now());\n  }\n\n  static addEventListener(type, listener) {\n    this._dispatcher.addEventListener(type, listener);\n  }\n\n  static hasEventListener(type, listener) {\n    return this._dispatcher.hasEventListener(type, listener);\n  }\n\n  static removeEventListener(type, listener) {\n    this._dispatcher.removeEventListener(type, listener);\n  }\n\n}\n\nRAFTicker.onTick = timestamp => {\n  if (RAFTicker._lastUpdateTimestamp == null) {\n    RAFTicker._lastUpdateTimestamp = timestamp;\n  }\n\n  const delta = timestamp - RAFTicker._lastUpdateTimestamp;\n\n  RAFTicker._dispatcher.dispatchEvent(new _RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEvent\"](_RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onBeforeTick, timestamp, delta));\n\n  RAFTicker._dispatcher.dispatchEvent(new _RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEvent\"](_RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].tick, timestamp, delta));\n\n  RAFTicker._dispatcher.dispatchEvent(new _RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEvent\"](_RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onAfterTick, timestamp, delta));\n\n  RAFTicker._lastUpdateTimestamp = timestamp;\n  RAFTicker._id = requestAnimationFrame(RAFTicker.onTick);\n};\n\nRAFTicker.initialize();\n\n//# sourceURL=webpack:///./esm/RAFTicker.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RAFTicker\", function() { return RAFTicker; });\n/* harmony import */ var _RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RAFTickerEvent */ \"./esm/RAFTickerEvent.js\");\n/* harmony import */ var eventemitter3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! eventemitter3 */ \"./node_modules/eventemitter3/index.js\");\n/* harmony import */ var eventemitter3__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(eventemitter3__WEBPACK_IMPORTED_MODULE_1__);\n\n\nclass RAFTicker {\n  static initialize() {\n    if (this._dispatcher != null) return;\n    this._dispatcher = new eventemitter3__WEBPACK_IMPORTED_MODULE_1___default.a();\n    RAFTicker.onTick(performance.now());\n  }\n\n  static addListener(type, listener) {\n    this._dispatcher.on(type, listener);\n  }\n  /**\n   * Alias for addListener\n   *\n   * @param type\n   * @param listener\n   */\n\n\n  static on(type, listener) {\n    this.addListener(type, listener);\n  }\n  /**\n   * Alias for addListener\n   *\n   * @deprecated use addListener\n   * @param type\n   * @param listener\n   */\n\n\n  static addEventListener(type, listener) {\n    this.addListener(type, listener);\n  }\n  /**\n   *\n   * @param type\n   * @param listener\n   */\n\n\n  static hasListener(type, listener) {\n    const listeners = this._dispatcher.listeners(type);\n\n    return listeners.includes(listener);\n  }\n  /**\n   * Alias for hasListener\n   *\n   * @deprecated use hasListener\n   * @param type\n   * @param listener\n   */\n\n\n  static hasEventListener(type, listener) {\n    return this.hasListener(type, listener);\n  }\n  /**\n   * Removes the specified listener\n   *\n   * @param type\n   * @param listener\n   */\n\n\n  static removeListener(type, listener) {\n    this._dispatcher.removeListener(type, listener);\n  }\n  /**\n   * Alias for removeListener\n   *\n   * @param type\n   * @param listener\n   */\n\n\n  static off(type, listener) {\n    this.removeListener(type, listener);\n  }\n  /**\n   * Alias for removeListener\n   *\n   * @deprecated use removeListener\n   * @param type\n   * @param listener\n   */\n\n\n  static removeEventListener(type, listener) {\n    this.removeListener(type, listener);\n  }\n  /**\n   * イベントを発効する。\n   * この関数はアプリケーションから利用することはなく、主に単体テストのために使用する。\n   *\n   * @param type\n   * @param event\n   */\n\n\n  static emit(type, event) {\n    this._dispatcher.emit(type, event);\n  }\n\n}\n\nRAFTicker.onTick = timestamp => {\n  if (RAFTicker._lastUpdateTimestamp == null) {\n    RAFTicker._lastUpdateTimestamp = timestamp;\n  }\n\n  const delta = timestamp - RAFTicker._lastUpdateTimestamp;\n  RAFTicker.emit(_RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onBeforeTick, new _RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEvent\"](timestamp, delta));\n  RAFTicker.emit(_RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].tick, new _RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEvent\"](timestamp, delta));\n  RAFTicker.emit(_RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEventType\"].onAfterTick, new _RAFTickerEvent__WEBPACK_IMPORTED_MODULE_0__[\"RAFTickerEvent\"](timestamp, delta));\n  RAFTicker._lastUpdateTimestamp = timestamp;\n  RAFTicker._id = requestAnimationFrame(RAFTicker.onTick);\n};\n\nRAFTicker.initialize();\n\n//# sourceURL=webpack:///./esm/RAFTicker.js?");
 
 /***/ }),
 
@@ -130,7 +187,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RAFTickerEventType\", function() { return RAFTickerEventType; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RAFTickerEvent\", function() { return RAFTickerEvent; });\nvar RAFTickerEventType;\n\n(function (RAFTickerEventType) {\n  RAFTickerEventType[\"onBeforeTick\"] = \"onBeforeTick\";\n  RAFTickerEventType[\"tick\"] = \"tick\";\n  RAFTickerEventType[\"onAfterTick\"] = \"onAfterTick\";\n})(RAFTickerEventType || (RAFTickerEventType = {}));\n\nclass RAFTickerEvent {\n  constructor(type, timestamp, delta) {\n    this.type = type;\n    this.timestamp = timestamp;\n    this.delta = delta;\n  }\n\n}\n\n//# sourceURL=webpack:///./esm/RAFTickerEvent.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RAFTickerEventType\", function() { return RAFTickerEventType; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RAFTickerEvent\", function() { return RAFTickerEvent; });\nvar RAFTickerEventType;\n\n(function (RAFTickerEventType) {\n  RAFTickerEventType[\"onBeforeTick\"] = \"onBeforeTick\";\n  RAFTickerEventType[\"tick\"] = \"tick\";\n  RAFTickerEventType[\"onAfterTick\"] = \"onAfterTick\";\n})(RAFTickerEventType || (RAFTickerEventType = {}));\n\nclass RAFTickerEvent {\n  constructor(timestamp, delta) {\n    this.timestamp = timestamp;\n    this.delta = delta;\n  }\n\n}\n\n//# sourceURL=webpack:///./esm/RAFTickerEvent.js?");
 
 /***/ }),
 
