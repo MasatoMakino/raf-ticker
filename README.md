@@ -1,8 +1,8 @@
 # RAF-ticker
 
-simple ticker with requestAnimationFrame.
+> A simple ticker with requestAnimationFrame.
 
-[GitHub](https://github.com/MasatoMakino/raf-ticker)
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=MasatoMakino&repo=raf-ticker&show_owner=true)](https://github.com/MasatoMakino/raf-ticker)
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ $ npm install https://github.com/MasatoMakino/raf-ticker.git -D
 ```js
 import { RAFTicker, RAFTickerEventType } from "raf-ticker";
 
-RAFTicker.addEventListener(RAFTickerEventType.tick, e => {
+RAFTicker.addEventListener(RAFTickerEventType.tick, (e) => {
   console.log(e);
 });
 ```
