@@ -17,7 +17,7 @@ $ npm install https://github.com/MasatoMakino/raf-ticker.git -D
 ```js
 import { RAFTicker, RAFTickerEventType } from "raf-ticker";
 
-RAFTicker.addEventListener(RAFTickerEventType.tick, (e) => {
+RAFTicker.on(RAFTickerEventType.tick, (e) => {
   console.log(e);
 });
 ```
