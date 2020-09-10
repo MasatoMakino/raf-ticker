@@ -16,18 +16,24 @@
     "eventemitter3": "^4.0.4"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.13",
+    "@types/node": "^14.6.4",
     "gulp": "^4.0.2",
     "gulptask-demo-page": "https://github.com/MasatoMakino/gulptask-demo-page.git",
     "gulptask-dev-server": "https://github.com/MasatoMakino/gulptask-dev-server.git",
     "gulptask-tsc": "https://github.com/MasatoMakino/gulptask-tsc.git",
     "gulptask-tsdoc": "https://github.com/MasatoMakino/gulptask-tsdoc.git",
     "husky": "^4.2.5",
+    "jest": "^26.4.2",
+    "mock-raf": "https://github.com/FormidableLabs/mock-raf.git",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
+    "ts-jest": "^26.3.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
   },
   "scripts": {
+    "test": "jest --coverage",
     "start:dev": "gulp start_dev",
     "build": "gulp build",
     "build:clean": "gulp build_clean",
