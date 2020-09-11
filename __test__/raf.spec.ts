@@ -63,7 +63,7 @@ describe("raf", () => {
     expect(RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)).toBe(true);
   });
 
-  test("addEventListener", () => {
+  test("removeEventListener", () => {
     const mockTick = jest.fn((e: RAFTickerEvent) => e);
     RAFTicker.on(RAFTickerEventType.tick, mockTick);
     RAFTicker.removeEventListener(RAFTickerEventType.tick, mockTick);
