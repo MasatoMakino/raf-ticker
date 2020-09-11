@@ -20,7 +20,7 @@ class RequestAnimationFrameMockSession {
     cancelAnimationFrame(nextHandle);
   }
 
-  public triggerAllAnimationFrames(time = performance.now()) {
+  public trigger(time = performance.now()) {
     /**
      * rafのcallbackが自分自身で再登録する場合、無限ループが発生する。
      * そのため固定長のループとする。

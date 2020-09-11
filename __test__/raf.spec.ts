@@ -8,11 +8,9 @@ describe("raf", () => {
   });
 
   test("tick", () => {
-    const mockTick = jest.fn((e) => e);
+    const mockTick = jest.fn((e: RAFTickerEvent) => e);
     RAFTicker.on(RAFTickerEventType.tick, mockTick);
-
-    requestAnimationFrameMock.triggerAllAnimationFrames();
-
+    requestAnimationFrameMock.trigger();
     expect(mockTick).toBeCalled();
   });
 });
