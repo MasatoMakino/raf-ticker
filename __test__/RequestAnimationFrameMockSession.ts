@@ -10,11 +10,11 @@ class RequestAnimationFrameMockSession {
   private queue: Map<number, Function> = new Map();
   private _now: number = 0;
 
-  public now() {
+  public now(): number {
     return this._now;
   }
 
-  public requestAnimationFrame(callback: Function) {
+  public requestAnimationFrame(callback: Function): number {
     const handle = this.handleCounter++;
     this.queue.set(handle, callback);
     return handle;
@@ -24,12 +24,12 @@ class RequestAnimationFrameMockSession {
     this.queue.delete(handle);
   }
 
-  private triggerNextAnimationFrame(time: number): void {
+  private triggerNextAnimationFrame(timestamp: number): void {
     const nextEntry = this.queue.entries().next().value;
     if (nextEntry === undefined) return;
 
     const [nextHandle, nextCallback] = nextEntry;
-    nextCallback(time);
+    nextCallback(timestamp);
     cancelAnimationFrame(nextHandle);
   }
 

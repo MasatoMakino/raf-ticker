@@ -13,7 +13,6 @@ export class RAFTicker {
   }
 
   public static reset() {
-    if (!this._dispatcher) return;
     this._dispatcher.removeAllListeners();
     this._dispatcher = null;
     this._dispatcher = new EventEmitter();
