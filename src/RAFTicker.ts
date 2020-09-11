@@ -12,6 +12,14 @@ export class RAFTicker {
     RAFTicker.onTick(performance.now());
   }
 
+  public static reset() {
+    if (!this._dispatcher) return;
+    this._dispatcher.removeAllListeners();
+    this._dispatcher = null;
+    this._dispatcher = new EventEmitter();
+    RAFTicker.onTick(performance.now());
+  }
+
   static addListener(
     type: RAFTickerEventType,
     listener: (event: RAFTickerEvent) => void

@@ -1,4 +1,5 @@
-bin/
+esm/
+lib/
 coverage/
 docs/
 node_modules/
