@@ -2,7 +2,7 @@
 
 > A simple ticker with requestAnimationFrame.
 
-[![Build Status](https://travis-ci.org/MasatoMakino/raf-ticker.svg?branch=master)](https://travis-ci.org/MasatoMakino/raf-ticker)
+[![Build Status](https://travis-ci.com/MasatoMakino/raf-ticker.svg?branch=master)](https://travis-ci.com/MasatoMakino/raf-ticker)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1b76d40aaf6bf61c28f0/maintainability)](https://codeclimate.com/github/MasatoMakino/raf-ticker/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/1b76d40aaf6bf61c28f0/test_coverage)](https://codeclimate.com/github/MasatoMakino/raf-ticker/test_coverage)
 
