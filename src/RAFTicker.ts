@@ -32,12 +32,7 @@ export class RAFTicker {
    * @param type
    * @param listener
    */
-  static on(
-    type: RAFTickerEventType,
-    listener: (event: RAFTickerEvent) => void
-  ) {
-    this.addListener(type, listener);
-  }
+  static on = RAFTicker.addListener;
 
   /**
    * Alias for addListener
@@ -46,12 +41,7 @@ export class RAFTicker {
    * @param type
    * @param listener
    */
-  static addEventListener(
-    type: RAFTickerEventType,
-    listener: (event: RAFTickerEvent) => void
-  ) {
-    this.addListener(type, listener);
-  }
+  static addEventListener = RAFTicker.addListener;
 
   /**
    *
@@ -73,12 +63,7 @@ export class RAFTicker {
    * @param type
    * @param listener
    */
-  static hasEventListener(
-    type: RAFTickerEventType,
-    listener: (event: RAFTickerEvent) => void
-  ): boolean {
-    return this.hasListener(type, listener);
-  }
+  static hasEventListener = RAFTicker.hasListener;
 
   /**
    * Removes the specified listener
@@ -99,12 +84,7 @@ export class RAFTicker {
    * @param type
    * @param listener
    */
-  static off(
-    type: RAFTickerEventType,
-    listener: (event: RAFTickerEvent) => void
-  ): void {
-    this.removeListener(type, listener);
-  }
+  static off = RAFTicker.removeListener;
 
   /**
    * Alias for removeListener
@@ -113,12 +93,7 @@ export class RAFTicker {
    * @param type
    * @param listener
    */
-  static removeEventListener(
-    type: RAFTickerEventType,
-    listener: (event: RAFTickerEvent) => void
-  ): void {
-    this.removeListener(type, listener);
-  }
+  static removeEventListener = RAFTicker.removeListener;
 
   /**
    * イベントを発効する。
