@@ -17,25 +17,6 @@ export class RAFTicker {
         this._dispatcher.on(type, listener);
     }
     /**
-     * Alias for addListener
-     *
-     * @param type
-     * @param listener
-     */
-    static on(type, listener) {
-        this.addListener(type, listener);
-    }
-    /**
-     * Alias for addListener
-     *
-     * @deprecated use addListener
-     * @param type
-     * @param listener
-     */
-    static addEventListener(type, listener) {
-        this.addListener(type, listener);
-    }
-    /**
      *
      * @param type
      * @param listener
@@ -45,16 +26,6 @@ export class RAFTicker {
         return listeners.includes(listener);
     }
     /**
-     * Alias for hasListener
-     *
-     * @deprecated use hasListener
-     * @param type
-     * @param listener
-     */
-    static hasEventListener(type, listener) {
-        return this.hasListener(type, listener);
-    }
-    /**
      * Removes the specified listener
      *
      * @param type
@@ -62,25 +33,6 @@ export class RAFTicker {
      */
     static removeListener(type, listener) {
         this._dispatcher.removeListener(type, listener);
-    }
-    /**
-     * Alias for removeListener
-     *
-     * @param type
-     * @param listener
-     */
-    static off(type, listener) {
-        this.removeListener(type, listener);
-    }
-    /**
-     * Alias for removeListener
-     *
-     * @deprecated use removeListener
-     * @param type
-     * @param listener
-     */
-    static removeEventListener(type, listener) {
-        this.removeListener(type, listener);
     }
     /**
      * イベントを発効する。
@@ -93,6 +45,44 @@ export class RAFTicker {
         this._dispatcher.emit(type, event);
     }
 }
+/**
+ * Alias for addListener
+ *
+ * @param type
+ * @param listener
+ */
+RAFTicker.on = RAFTicker.addListener;
+/**
+ * Alias for addListener
+ *
+ * @deprecated use addListener
+ * @param type
+ * @param listener
+ */
+RAFTicker.addEventListener = RAFTicker.addListener;
+/**
+ * Alias for hasListener
+ *
+ * @deprecated use hasListener
+ * @param type
+ * @param listener
+ */
+RAFTicker.hasEventListener = RAFTicker.hasListener;
+/**
+ * Alias for removeListener
+ *
+ * @param type
+ * @param listener
+ */
+RAFTicker.off = RAFTicker.removeListener;
+/**
+ * Alias for removeListener
+ *
+ * @deprecated use removeListener
+ * @param type
+ * @param listener
+ */
+RAFTicker.removeEventListener = RAFTicker.removeListener;
 RAFTicker.onTick = (timestamp) => {
     if (RAFTicker._lastUpdateTimestamp == null) {
         RAFTicker._lastUpdateTimestamp = timestamp;

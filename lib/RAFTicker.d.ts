@@ -12,7 +12,7 @@ export declare class RAFTicker {
      * @param type
      * @param listener
      */
-    static on(type: RAFTickerEventType, listener: (event: RAFTickerEvent) => void): void;
+    static on: typeof RAFTicker.addListener;
     /**
      * Alias for addListener
      *
@@ -20,7 +20,7 @@ export declare class RAFTicker {
      * @param type
      * @param listener
      */
-    static addEventListener(type: RAFTickerEventType, listener: (event: RAFTickerEvent) => void): void;
+    static addEventListener: typeof RAFTicker.addListener;
     /**
      *
      * @param type
@@ -34,7 +34,7 @@ export declare class RAFTicker {
      * @param type
      * @param listener
      */
-    static hasEventListener(type: RAFTickerEventType, listener: (event: RAFTickerEvent) => void): boolean;
+    static hasEventListener: typeof RAFTicker.hasListener;
     /**
      * Removes the specified listener
      *
@@ -48,7 +48,7 @@ export declare class RAFTicker {
      * @param type
      * @param listener
      */
-    static off(type: RAFTickerEventType, listener: (event: RAFTickerEvent) => void): void;
+    static off: typeof RAFTicker.removeListener;
     /**
      * Alias for removeListener
      *
@@ -56,7 +56,7 @@ export declare class RAFTicker {
      * @param type
      * @param listener
      */
-    static removeEventListener(type: RAFTickerEventType, listener: (event: RAFTickerEvent) => void): void;
+    static removeEventListener: typeof RAFTicker.removeListener;
     /**
      * イベントを発効する。
      * この関数はアプリケーションから利用することはなく、主に単体テストのために使用する。
