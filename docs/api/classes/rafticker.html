@@ -7,6 +7,7 @@
 	<meta name="description" content="Documentation for raf-ticker">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -40,8 +41,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -53,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">raf-ticker</a>
 				</li>
 				<li>
 					<a href="rafticker.html">RAFTicker</a>
@@ -78,6 +77,12 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="rafticker.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
@@ -107,44 +112,61 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new RAFTicker<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rafticker.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTicker</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="rafticker.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTicker</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
 					<a name="_dispatcher" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> _dispatcher</h3>
-					<div class="tsd-signature tsd-kind-icon">_dispatcher<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span></div>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagStatic">Static</span> _dispatcher</h3>
+					<div class="tsd-signature tsd-kind-icon">_dispatcher<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L5">RAFTicker.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L5">RAFTicker.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-static">
 					<a name="_id" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagProtected">Protected</span> _id</h3>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagStatic">Static</span> _id</h3>
 					<div class="tsd-signature tsd-kind-icon">_id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L7">RAFTicker.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L7">RAFTicker.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
 					<a name="_lastupdatetimestamp" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> _last<wbr>Update<wbr>Timestamp</h3>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagStatic">Static</span> _last<wbr>Update<wbr>Timestamp</h3>
 					<div class="tsd-signature tsd-kind-icon">_last<wbr>Update<wbr>Timestamp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L6">RAFTicker.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L6">RAFTicker.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="addeventlistener" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> add<wbr>Event<wbr>Listener</h3>
-					<div class="tsd-signature tsd-kind-icon">add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">:</span> <a href="rafticker.html#addlistener" class="tsd-signature-type">addListener</a><span class="tsd-signature-symbol"> = RAFTicker.addListener</span></div>
+					<div class="tsd-signature tsd-kind-icon">add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L44">RAFTicker.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L44">RAFTicker.ts:44</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -161,14 +183,56 @@
 							<dd></dd>
 						</dl>
 					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a></h5>
+											</li>
+											<li>
+												<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+												<ul class="tsd-parameters">
+													<li class="tsd-parameter-signature">
+														<ul class="tsd-signatures tsd-kind-type-literal">
+															<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+														</ul>
+														<ul class="tsd-descriptions">
+															<li class="tsd-description">
+																<h4 class="tsd-parameters-title">Parameters</h4>
+																<ul class="tsd-parameters">
+																	<li>
+																		<h5>event: <a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a></h5>
+																	</li>
+																</ul>
+																<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="haseventlistener" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> has<wbr>Event<wbr>Listener</h3>
-					<div class="tsd-signature tsd-kind-icon">has<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">:</span> <a href="rafticker.html#haslistener" class="tsd-signature-type">hasListener</a><span class="tsd-signature-symbol"> = RAFTicker.hasListener</span></div>
+					<div class="tsd-signature tsd-kind-icon">has<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L66">RAFTicker.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L66">RAFTicker.ts:66</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -185,14 +249,58 @@
 							<dd></dd>
 						</dl>
 					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a></h5>
+											</li>
+											<li>
+												<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+												<div class="tsd-comment tsd-typography">
+												</div>
+												<ul class="tsd-parameters">
+													<li class="tsd-parameter-signature">
+														<ul class="tsd-signatures tsd-kind-type-literal">
+															<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+														</ul>
+														<ul class="tsd-descriptions">
+															<li class="tsd-description">
+																<h4 class="tsd-parameters-title">Parameters</h4>
+																<ul class="tsd-parameters">
+																	<li>
+																		<h5>event: <a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a></h5>
+																	</li>
+																</ul>
+																<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="off" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> off</h3>
-					<div class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">:</span> <a href="rafticker.html#removelistener" class="tsd-signature-type">removeListener</a><span class="tsd-signature-symbol"> = RAFTicker.removeListener</span></div>
+					<div class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L87">RAFTicker.ts:87</a></li>
+							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L87">RAFTicker.ts:87</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -206,14 +314,63 @@
 							<dd></dd>
 						</dl>
 					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Removes the specified listener</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a></h5>
+											</li>
+											<li>
+												<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+												<div class="tsd-comment tsd-typography">
+												</div>
+												<ul class="tsd-parameters">
+													<li class="tsd-parameter-signature">
+														<ul class="tsd-signatures tsd-kind-type-literal">
+															<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+														</ul>
+														<ul class="tsd-descriptions">
+															<li class="tsd-description">
+																<h4 class="tsd-parameters-title">Parameters</h4>
+																<ul class="tsd-parameters">
+																	<li>
+																		<h5>event: <a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a></h5>
+																	</li>
+																</ul>
+																<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="on" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> on</h3>
-					<div class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">:</span> <a href="rafticker.html#addlistener" class="tsd-signature-type">addListener</a><span class="tsd-signature-symbol"> = RAFTicker.addListener</span></div>
+					<div class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L35">RAFTicker.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L35">RAFTicker.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -227,14 +384,56 @@
 							<dd></dd>
 						</dl>
 					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a></h5>
+											</li>
+											<li>
+												<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+												<ul class="tsd-parameters">
+													<li class="tsd-parameter-signature">
+														<ul class="tsd-signatures tsd-kind-type-literal">
+															<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+														</ul>
+														<ul class="tsd-descriptions">
+															<li class="tsd-description">
+																<h4 class="tsd-parameters-title">Parameters</h4>
+																<ul class="tsd-parameters">
+																	<li>
+																		<h5>event: <a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a></h5>
+																	</li>
+																</ul>
+																<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="removeeventlistener" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> remove<wbr>Event<wbr>Listener</h3>
-					<div class="tsd-signature tsd-kind-icon">remove<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">:</span> <a href="rafticker.html#removelistener" class="tsd-signature-type">removeListener</a><span class="tsd-signature-symbol"> = RAFTicker.removeListener</span></div>
+					<div class="tsd-signature tsd-kind-icon">remove<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L96">RAFTicker.ts:96</a></li>
+							<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L96">RAFTicker.ts:96</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -251,6 +450,55 @@
 							<dd></dd>
 						</dl>
 					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Removes the specified listener</p>
+											</div>
+										</div>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a></h5>
+											</li>
+											<li>
+												<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+												<div class="tsd-comment tsd-typography">
+												</div>
+												<ul class="tsd-parameters">
+													<li class="tsd-parameter-signature">
+														<ul class="tsd-signatures tsd-kind-type-literal">
+															<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+														</ul>
+														<ul class="tsd-descriptions">
+															<li class="tsd-description">
+																<h4 class="tsd-parameters-title">Parameters</h4>
+																<ul class="tsd-parameters">
+																	<li>
+																		<h5>event: <a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a></h5>
+																	</li>
+																</ul>
+																<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -259,33 +507,33 @@
 					<a name="addlistener" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> add<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L22">RAFTicker.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L22">RAFTicker.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type">RAFTickerEventType</a></h5>
+									<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a></h5>
+															<h5>event: <a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -303,13 +551,13 @@
 					<a name="emit" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> emit</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type">RAFTickerEventType</a>, event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L105">RAFTicker.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L105">RAFTicker.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -321,10 +569,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type">RAFTickerEventType</a></h5>
+									<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a></h5>
 								</li>
 								<li>
-									<h5>event: <a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a></h5>
+									<h5>event: <a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
@@ -337,37 +585,35 @@
 					<a name="haslistener" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> has<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">has<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L51">RAFTicker.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L51">RAFTicker.ts:51</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type">RAFTickerEventType</a></h5>
+									<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a></h5>
+															<h5>event: <a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -391,7 +637,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L9">RAFTicker.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L9">RAFTicker.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -400,7 +646,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
 					<a name="ontick" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> on<wbr>Tick</h3>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagStatic">Static</span> on<wbr>Tick</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Tick<span class="tsd-signature-symbol">(</span>timestamp<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -408,7 +654,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L109">RAFTicker.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L109">RAFTicker.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -425,13 +671,13 @@
 					<a name="removelistener" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> remove<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">remove<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Listener<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L74">RAFTicker.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L74">RAFTicker.ts:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -442,23 +688,23 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type">RAFTickerEventType</a></h5>
+									<h5>type: <a href="../enums/raftickereventtype.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RAFTickerEventType</a></h5>
 								</li>
 								<li>
-									<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>listener: <span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-signature">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="raftickerevent.html" class="tsd-signature-type">RAFTickerEvent</a></h5>
+															<h5>event: <a href="raftickerevent.html" class="tsd-signature-type" data-tsd-kind="Class">RAFTickerEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -482,7 +728,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/9fcc153/src/RAFTicker.ts#L15">RAFTicker.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/MasatoMakino/raf-ticker/blob/cfc3b43/src/RAFTicker.ts#L15">RAFTicker.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -494,8 +740,8 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
 					</li>
 				</ul>
 			</nav>
@@ -509,6 +755,9 @@
 					<li class="current tsd-kind-class">
 						<a href="rafticker.html" class="tsd-kind-icon">RAFTicker</a>
 						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="rafticker.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
 								<a href="rafticker.html#_dispatcher" class="tsd-kind-icon">_dispatcher</a>
 							</li>
