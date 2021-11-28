@@ -1,5 +1,5 @@
-import { RAFTickerEvent, RAFTickerEventType } from "./RAFTickerEvent";
 import EventEmitter from "eventemitter3";
+import { RAFTickerEvent, RAFTickerEventType } from "./RAFTickerEvent";
 
 export class RAFTicker {
   private static _dispatcher: EventEmitter;
