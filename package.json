@@ -32,6 +32,7 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
+    "prepare": "husky install",
     "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
     "build": "npm run demo & npm run buildTS",
     "demo": "npx gulptask-demo-page",
@@ -40,10 +41,5 @@
     "server": "npx gulptask-dev-server -b ./docs/demo",
     "watch:demo": "npm run demo -- -W",
     "watch:tsc": "tsc -W --incremental --project tsconfig.cjs.json & tsc -W --incremental --project tsconfig.esm.json"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }
