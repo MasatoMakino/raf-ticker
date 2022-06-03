@@ -37,7 +37,7 @@ export class RAFTicker {
   /**
    * Alias for addListener
    *
-   * @deprecated use addListener
+   * @deprecated use addListener or on
    * @param type
    * @param listener
    */
@@ -89,7 +89,7 @@ export class RAFTicker {
   /**
    * Alias for removeListener
    *
-   * @deprecated use removeListener
+   * @deprecated use removeListener or off
    * @param type
    * @param listener
    */
