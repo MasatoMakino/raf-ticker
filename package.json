@@ -1,6 +1,6 @@
 {
   "name": "raf-ticker",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Simple ticker with requestAnimationFrame.",
   "main": "lib/index.js",
   "module": "esm/index.js",
