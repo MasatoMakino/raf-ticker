@@ -1,6 +1,6 @@
 {
   "name": "@masatomakino/raf-ticker",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Simple ticker with requestAnimationFrame.",
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -9,7 +9,10 @@
     "lib",
     "esm"
   ],
-  "repository": "https://MasatoMakino@github.com/MasatoMakino/RAF-ticker.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://MasatoMakino@github.com/MasatoMakino/RAF-ticker.git"
+  },
   "author": "MasatoMakino <unagiinu.g@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -18,8 +21,8 @@
   "devDependencies": {
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.10",
-    "gulptask-demo-page": "https://github.com/MasatoMakino/gulptask-demo-page",
-    "gulptask-dev-server": "https://github.com/MasatoMakino/gulptask-dev-server",
+    "gulptask-demo-page": "git+https://github.com/MasatoMakino/gulptask-demo-page.git",
+    "gulptask-dev-server": "git+https://github.com/MasatoMakino/gulptask-dev-server.git",
     "husky": "^7.0.4",
     "jest": "^27.3.1",
     "prettier": "^2.5.0",
@@ -41,5 +44,13 @@
     "server": "npx gulptask-dev-server -b ./docs/demo",
     "watch:demo": "npm run demo -- -W",
     "watch:tsc": "tsc -W --incremental --project tsconfig.cjs.json & tsc -W --incremental --project tsconfig.esm.json"
+  },
+  "bugs": {
+    "url": "https://github.com/MasatoMakino/RAF-ticker/issues"
+  },
+  "homepage": "https://github.com/MasatoMakino/RAF-ticker#readme",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
   }
 }
