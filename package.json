@@ -1,5 +1,5 @@
 {
-  "name": "raf-ticker",
+  "name": "@masatomakino/raf-ticker",
   "version": "0.2.6",
   "description": "Simple ticker with requestAnimationFrame.",
   "main": "lib/index.js",
