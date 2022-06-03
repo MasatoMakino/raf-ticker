@@ -19,7 +19,7 @@ Open the console from your browser's developer tools.
 ### Install
 
 ```bash
-npm install https://github.com/MasatoMakino/raf-ticker.git -D
+npm i @masatomakino/raf-ticker -D
 ```
 
 ### How to use
