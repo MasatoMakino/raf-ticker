@@ -19,10 +19,10 @@
     "eventemitter3": "^4.0.7"
   },
   "devDependencies": {
+    "@masatomakino/gulptask-demo-page": "^0.4.4",
+    "@masatomakino/gulptask-dev-server": "^0.4.1",
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.10",
-    "gulptask-demo-page": "git+https://github.com/MasatoMakino/gulptask-demo-page.git",
-    "gulptask-dev-server": "git+https://github.com/MasatoMakino/gulptask-dev-server.git",
     "husky": "^7.0.4",
     "jest": "^27.3.1",
     "prettier": "^2.5.0",
@@ -38,10 +38,10 @@
     "prepare": "husky install",
     "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
     "build": "npm run demo & npm run buildTS",
-    "demo": "npx gulptask-demo-page",
+    "demo": "npx @masatomakino/gulptask-demo-page",
     "buildTS": "npx tsc --project tsconfig.cjs.json & tsc --project tsconfig.esm.json",
     "typedocs": "npx typedoc --out ./docs/api src/index.ts",
-    "server": "npx gulptask-dev-server -b ./docs/demo",
+    "server": "npx @masatomakino/gulptask-dev-server -b ./docs/demo",
     "watch:demo": "npm run demo -- -W",
     "watch:tsc": "tsc -W --incremental --project tsconfig.cjs.json & tsc -W --incremental --project tsconfig.esm.json"
   },
