@@ -29,8 +29,12 @@
 <a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
   <h3>How to use</h3>
 </a>
-<pre><code class="language-js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">RAFTicker</span><span class="hl-0">, </span><span class="hl-2">RAFTickerEventType</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&quot;raf-ticker&quot;</span><span class="hl-0">;</span><br/><br/><span class="hl-2">RAFTicker</span><span class="hl-0">.</span><span class="hl-4">on</span><span class="hl-0">(</span><span class="hl-2">RAFTickerEventType</span><span class="hl-0">.</span><span class="hl-2">tick</span><span class="hl-0">, (</span><span class="hl-2">e</span><span class="hl-0">) </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-4">log</span><span class="hl-0">(</span><span class="hl-2">e</span><span class="hl-0">);</span><br/><span class="hl-0">});</span>
+<pre><code class="language-js"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">RAFTicker</span><span class="hl-0">, </span><span class="hl-2">RAFTickerEventType</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&quot;@masatomakino/raf-ticker&quot;</span><span class="hl-0">;</span>
 </code></pre>
+<p>Just import and <code>RAFTicker</code> starts.</p>
+<pre><code class="language-js"><span class="hl-2">RAFTicker</span><span class="hl-0">.</span><span class="hl-4">on</span><span class="hl-0">(</span><span class="hl-2">RAFTickerEventType</span><span class="hl-0">.</span><span class="hl-2">tick</span><span class="hl-0">, (</span><span class="hl-2">e</span><span class="hl-0">) </span><span class="hl-5">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">console</span><span class="hl-0">.</span><span class="hl-4">log</span><span class="hl-0">(</span><span class="hl-2">e</span><span class="hl-0">);</span><br/><span class="hl-0">});</span>
+</code></pre>
+<p><code>RAFTicker</code> dispatches events every frame.</p>
 <p><a href="https://masatomakino.github.io/raf-ticker/api/index.html">API document</a></p>
 
 <a href="#license" id="license" style="color: inherit; text-decoration: none;">
