@@ -25,12 +25,18 @@ npm i @masatomakino/raf-ticker -D
 ### How to use
 
 ```js
-import { RAFTicker, RAFTickerEventType } from "raf-ticker";
+import { RAFTicker, RAFTickerEventType } from "@masatomakino/raf-ticker";
+```
 
+Just import and `RAFTicker` starts.
+
+```js
 RAFTicker.on(RAFTickerEventType.tick, (e) => {
   console.log(e);
 });
 ```
+
+`RAFTicker` dispatches events every frame.
 
 [API document](https://masatomakino.github.io/raf-ticker/api/index.html)
 
