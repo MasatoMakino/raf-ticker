@@ -37,6 +37,17 @@
 <p><code>RAFTicker</code> dispatches events every frame.</p>
 <p><a href="https://masatomakino.github.io/raf-ticker/api/index.html">API document</a></p>
 
+<a href="#why-is-this-package-necessary" id="why-is-this-package-necessary" style="color: inherit; text-decoration: none;">
+  <h3>Why is this package necessary?</h3>
+</a>
+<p>Unification of requestAnimationFrame improves rendering performance.</p>
+<p><a href="https://stackoverflow.com/questions/17103785/multiple-requestanimationframe-performance">https://stackoverflow.com/questions/17103785/multiple-requestanimationframe-performance</a></p>
+<p>If you use multiple animation modules together, setting up a render loop in each module will increase the cost of callbacks.</p>
+<blockquote>
+<p><strong>Warning</strong>
+Performance improvement from unifying requestAnimationFrame depends on the browser implementation. In future versions of the browser, this approach may result in performance degradation. Be sure to check performance in your actual environment.</p>
+</blockquote>
+
 <a href="#license" id="license" style="color: inherit; text-decoration: none;">
   <h2>License</h2>
 </a>
