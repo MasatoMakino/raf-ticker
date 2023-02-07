@@ -7,16 +7,28 @@ export class RAFTicker {
   protected static _id: number;
 
   public static initialize() {
-    if (this._dispatcher != null) return;
-    this._dispatcher = new EventEmitter();
-    RAFTicker.onTick(performance.now());
+    if (this._dispatcher == null) {
+      this._dispatcher = new EventEmitter();
+    }
+    this.start();
   }
 
   public static reset() {
     this._dispatcher.removeAllListeners();
-    this._dispatcher = null;
-    this._dispatcher = new EventEmitter();
-    RAFTicker.onTick(performance.now());
+    this.stop();
+    this.start();
+  }
+
+  public static start() {
+    if (!RAFTicker._id) {
+      this._lastUpdateTimestamp = undefined;
+      RAFTicker.onTick(performance.now());
+    }
+  }
+  public static stop() {
+    cancelAnimationFrame(RAFTicker._id);
+    this._id = undefined;
+    this._lastUpdateTimestamp = undefined;
   }
 
   static addListener(
@@ -107,6 +119,11 @@ export class RAFTicker {
   }
 
   private static onTick = (timestamp?: number) => {
+    this.emitTickEvent(timestamp);
+    RAFTicker._id = requestAnimationFrame(RAFTicker.onTick);
+  };
+
+  public static emitTickEvent(timestamp?: number) {
     if (RAFTicker._lastUpdateTimestamp == null) {
       RAFTicker._lastUpdateTimestamp = timestamp;
     }
@@ -126,8 +143,7 @@ export class RAFTicker {
     );
 
     RAFTicker._lastUpdateTimestamp = timestamp;
-    RAFTicker._id = requestAnimationFrame(RAFTicker.onTick);
-  };
+  }
 }
 
 RAFTicker.initialize();
