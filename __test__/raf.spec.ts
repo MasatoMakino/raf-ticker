@@ -7,6 +7,20 @@ describe("raf", () => {
     RAFTicker.reset();
   });
 
+  test("start and stop", () => {
+    RAFTicker.stop();
+    const mockTick = jest.fn((e: RAFTickerEvent) => e);
+    RAFTicker.on(RAFTickerEventType.tick, mockTick);
+    RAFTicker.emitTickEvent(1000);
+    expect(mockTick).toBeCalled();
+    mockTick.mockClear();
+    expect(mockTick).not.toBeCalled();
+
+    RAFTicker.start();
+    requestAnimationFrameMock.trigger();
+    expect(mockTick).toBeCalled();
+  });
+
   test("tick", () => {
     const tickTime = 1000 / 60;
     const mockTick = jest.fn((e: RAFTickerEvent) => e);
@@ -38,8 +52,8 @@ describe("raf", () => {
   test("remove listener", () => {
     const mockTick = jest.fn((e: RAFTickerEvent) => e);
     RAFTicker.on(RAFTickerEventType.tick, mockTick);
+    expect(RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)).toBe(true);
     RAFTicker.off(RAFTickerEventType.tick, mockTick);
-
     expect(RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)).toBe(
       false
     );
@@ -50,6 +64,9 @@ describe("raf", () => {
 
   test("has listener", () => {
     const mockTick = jest.fn((e: RAFTickerEvent) => e);
+    expect(
+      RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)
+    ).toBeFalsy();
     RAFTicker.on(RAFTickerEventType.tick, mockTick);
     expect(RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)).toBe(true);
     expect(RAFTicker.hasEventListener(RAFTickerEventType.tick, mockTick)).toBe(
