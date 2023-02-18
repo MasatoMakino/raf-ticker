@@ -1,5 +1,2 @@
 exclude_paths:
-  - lib/**/*
-  - esm/**/*
-  - docs/**/*
   - __test__
