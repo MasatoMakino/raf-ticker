@@ -1,8 +1,8 @@
-import { RAFTicker, RAFTickerEventType } from "../esm";
+import { RAFTicker } from "..";
 
 export class Demo {
   constructor() {
-    const types = Object.values(RAFTickerEventType);
+    const types = ["onBeforeTick", "tick", "onAfterTick"];
     types.forEach((type) => {
       RAFTicker.on(type, (e) => {
         consoleEvent(type, e);

@@ -1,8 +1,8 @@
 import EventEmitter from "eventemitter3";
-import { RAFTickerEvent, RAFTickerEventType } from "./RAFTickerEvent";
+import { RafTickerEventMap, RAFTickerEventContext } from "./RAFTickerEvent";
 
 export class RAFTicker {
-  private static _dispatcher: EventEmitter;
+  private static _dispatcher: EventEmitter<RafTickerEventMap>;
   private static _lastUpdateTimestamp: number;
   protected static _id: number;
 
@@ -32,8 +32,8 @@ export class RAFTicker {
   }
 
   static addListener(
-    type: RAFTickerEventType,
-    listener: (event: RAFTickerEvent) => void
+    type: keyof RafTickerEventMap,
+    listener: (event: RAFTickerEventContext) => void
   ): void {
     this._dispatcher.on(type, listener);
   }
@@ -47,35 +47,17 @@ export class RAFTicker {
   static on = RAFTicker.addListener;
 
   /**
-   * Alias for addListener
-   *
-   * @deprecated use addListener or on
-   * @param type
-   * @param listener
-   */
-  static addEventListener = RAFTicker.addListener;
-
-  /**
    *
    * @param type
    * @param listener
    */
   static hasListener(
-    type: RAFTickerEventType,
-    listener: (event: RAFTickerEvent) => void
+    type: keyof RafTickerEventMap,
+    listener: (event: RAFTickerEventContext) => void
   ): boolean {
     const listeners = this._dispatcher.listeners(type);
     return listeners.includes(listener);
   }
-
-  /**
-   * Alias for hasListener
-   *
-   * @deprecated use hasListener
-   * @param type
-   * @param listener
-   */
-  static hasEventListener = RAFTicker.hasListener;
 
   /**
    * Removes the specified listener
@@ -84,8 +66,8 @@ export class RAFTicker {
    * @param listener
    */
   static removeListener(
-    type: RAFTickerEventType,
-    listener: (event: RAFTickerEvent) => void
+    type: keyof RafTickerEventMap,
+    listener: (event: RAFTickerEventContext) => void
   ): void {
     this._dispatcher.removeListener(type, listener);
   }
@@ -99,22 +81,16 @@ export class RAFTicker {
   static off = RAFTicker.removeListener;
 
   /**
-   * Alias for removeListener
-   *
-   * @deprecated use removeListener or off
-   * @param type
-   * @param listener
-   */
-  static removeEventListener = RAFTicker.removeListener;
-
-  /**
    * イベントを発効する。
    * この関数はアプリケーションから利用することはなく、主に単体テストのために使用する。
    *
    * @param type
    * @param event
    */
-  public static emit(type: RAFTickerEventType, event: RAFTickerEvent): void {
+  public static emit(
+    type: keyof RafTickerEventMap,
+    event: RAFTickerEventContext
+  ): void {
     this._dispatcher.emit(type, event);
   }
 
@@ -129,18 +105,9 @@ export class RAFTicker {
     }
     const delta = timestamp - RAFTicker._lastUpdateTimestamp;
 
-    RAFTicker.emit(
-      RAFTickerEventType.onBeforeTick,
-      new RAFTickerEvent(timestamp, delta)
-    );
-    RAFTicker.emit(
-      RAFTickerEventType.tick,
-      new RAFTickerEvent(timestamp, delta)
-    );
-    RAFTicker.emit(
-      RAFTickerEventType.onAfterTick,
-      new RAFTickerEvent(timestamp, delta)
-    );
+    RAFTicker.emit("onBeforeTick", new RAFTickerEventContext(timestamp, delta));
+    RAFTicker.emit("tick", new RAFTickerEventContext(timestamp, delta));
+    RAFTicker.emit("onAfterTick", new RAFTickerEventContext(timestamp, delta));
 
     RAFTicker._lastUpdateTimestamp = timestamp;
   }

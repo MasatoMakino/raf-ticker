@@ -1,10 +1,10 @@
-export enum RAFTickerEventType {
-  onBeforeTick = "onBeforeTick",
-  tick = "tick",
-  onAfterTick = "onAfterTick",
+export interface RafTickerEventMap {
+  onBeforeTick: RAFTickerEventContext;
+  tick: RAFTickerEventContext;
+  onAfterTick: RAFTickerEventContext;
 }
 
-export class RAFTickerEvent {
+export class RAFTickerEventContext {
   public delta: number;
   public timestamp: number;
   constructor(timestamp: number, delta: number) {
