@@ -1,4 +1,4 @@
-import { RAFTicker, RAFTickerEvent, RAFTickerEventType } from "../src";
+import { RAFTicker, RAFTickerEventContext } from "../src";
 import { requestAnimationFrameMock } from "./RequestAnimationFrameMockSession";
 
 describe("raf", () => {
@@ -9,8 +9,8 @@ describe("raf", () => {
 
   test("start and stop", () => {
     RAFTicker.stop();
-    const mockTick = jest.fn((e: RAFTickerEvent) => e);
-    RAFTicker.on(RAFTickerEventType.tick, mockTick);
+    const mockTick = jest.fn((e: RAFTickerEventContext) => e);
+    RAFTicker.on("tick", mockTick);
     RAFTicker.emitTickEvent(1000);
     expect(mockTick).toBeCalled();
     mockTick.mockClear();
@@ -23,25 +23,25 @@ describe("raf", () => {
 
   test("tick", () => {
     const tickTime = 1000 / 60;
-    const mockTick = jest.fn((e: RAFTickerEvent) => e);
-    RAFTicker.on(RAFTickerEventType.tick, mockTick);
+    const mockTick = jest.fn((e: RAFTickerEventContext) => e);
+    RAFTicker.on("tick", mockTick);
 
     requestAnimationFrameMock.trigger();
     expect(mockTick).toBeCalled();
-    const result01: RAFTickerEvent = mockTick.mock.results[0].value;
+    const result01: RAFTickerEventContext = mockTick.mock.results[0].value;
     expect(result01.timestamp).toBeCloseTo(tickTime);
     expect(result01.delta).toBeCloseTo(tickTime);
     mockTick.mockClear();
 
     requestAnimationFrameMock.trigger();
-    const result02: RAFTickerEvent = mockTick.mock.results[0].value;
+    const result02: RAFTickerEventContext = mockTick.mock.results[0].value;
     expect(result02.timestamp).toBeCloseTo(tickTime * 2);
     expect(result02.delta).toBeCloseTo(tickTime);
   });
 
   test("multiple initialize", () => {
-    const mockTick = jest.fn((e: RAFTickerEvent) => e);
-    RAFTicker.on(RAFTickerEventType.tick, mockTick);
+    const mockTick = jest.fn((e: RAFTickerEventContext) => e);
+    RAFTicker.on("tick", mockTick);
 
     RAFTicker.initialize();
 
@@ -50,42 +50,27 @@ describe("raf", () => {
   });
 
   test("remove listener", () => {
-    const mockTick = jest.fn((e: RAFTickerEvent) => e);
-    RAFTicker.on(RAFTickerEventType.tick, mockTick);
-    expect(RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)).toBe(true);
-    RAFTicker.off(RAFTickerEventType.tick, mockTick);
-    expect(RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)).toBe(
-      false
-    );
+    const mockTick = jest.fn((e: RAFTickerEventContext) => e);
+    RAFTicker.on("tick", mockTick);
+    expect(RAFTicker.hasListener("tick", mockTick)).toBe(true);
+    RAFTicker.off("tick", mockTick);
+    expect(RAFTicker.hasListener("tick", mockTick)).toBe(false);
 
     requestAnimationFrameMock.trigger();
     expect(mockTick).not.toBeCalled();
   });
 
   test("has listener", () => {
-    const mockTick = jest.fn((e: RAFTickerEvent) => e);
-    expect(
-      RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)
-    ).toBeFalsy();
-    RAFTicker.on(RAFTickerEventType.tick, mockTick);
-    expect(RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)).toBe(true);
-    expect(RAFTicker.hasEventListener(RAFTickerEventType.tick, mockTick)).toBe(
-      true
-    );
-  });
-
-  test("addEventListener", () => {
-    const mockTick = jest.fn((e: RAFTickerEvent) => e);
-    RAFTicker.addEventListener(RAFTickerEventType.tick, mockTick);
-    expect(RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)).toBe(true);
+    const mockTick = jest.fn((e: RAFTickerEventContext) => e);
+    expect(RAFTicker.hasListener("tick", mockTick)).toBeFalsy();
+    RAFTicker.on("tick", mockTick);
+    expect(RAFTicker.hasListener("tick", mockTick)).toBe(true);
   });
 
   test("removeEventListener", () => {
-    const mockTick = jest.fn((e: RAFTickerEvent) => e);
-    RAFTicker.on(RAFTickerEventType.tick, mockTick);
-    RAFTicker.removeEventListener(RAFTickerEventType.tick, mockTick);
-    expect(RAFTicker.hasListener(RAFTickerEventType.tick, mockTick)).toBe(
-      false
-    );
+    const mockTick = jest.fn((e: RAFTickerEventContext) => e);
+    RAFTicker.on("tick", mockTick);
+    RAFTicker.removeListener("tick", mockTick);
+    expect(RAFTicker.hasListener("tick", mockTick)).toBe(false);
   });
 });
