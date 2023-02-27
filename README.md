@@ -2,6 +2,7 @@
 
 > A simple ticker with requestAnimationFrame.
 
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![CI_Main](https://github.com/MasatoMakino/raf-ticker/actions/workflows/ci_main.yml/badge.svg)](https://github.com/MasatoMakino/raf-ticker/actions/workflows/ci_main.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/1b76d40aaf6bf61c28f0/maintainability)](https://codeclimate.com/github/MasatoMakino/raf-ticker/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/1b76d40aaf6bf61c28f0/test_coverage)](https://codeclimate.com/github/MasatoMakino/raf-ticker/test_coverage)
