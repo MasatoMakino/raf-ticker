@@ -1,4 +1,4 @@
-export interface RafTickerEventMap {
+export interface RAFTickerEventMap {
   onBeforeTick: RAFTickerEventContext;
   tick: RAFTickerEventContext;
   onAfterTick: RAFTickerEventContext;
