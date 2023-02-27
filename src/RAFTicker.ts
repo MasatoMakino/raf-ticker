@@ -1,8 +1,8 @@
 import EventEmitter from "eventemitter3";
-import { RafTickerEventMap, RAFTickerEventContext } from "./RAFTickerEvent";
+import { RAFTickerEventMap, RAFTickerEventContext } from "./RAFTickerEvent";
 
 export class RAFTicker {
-  private static _dispatcher: EventEmitter<RafTickerEventMap>;
+  private static _dispatcher: EventEmitter<RAFTickerEventMap>;
   private static _lastUpdateTimestamp: number;
   protected static _id: number;
 
@@ -32,7 +32,7 @@ export class RAFTicker {
   }
 
   static addListener(
-    type: keyof RafTickerEventMap,
+    type: keyof RAFTickerEventMap,
     listener: (event: RAFTickerEventContext) => void
   ): void {
     this._dispatcher.on(type, listener);
@@ -52,7 +52,7 @@ export class RAFTicker {
    * @param listener
    */
   static hasListener(
-    type: keyof RafTickerEventMap,
+    type: keyof RAFTickerEventMap,
     listener: (event: RAFTickerEventContext) => void
   ): boolean {
     const listeners = this._dispatcher.listeners(type);
@@ -66,7 +66,7 @@ export class RAFTicker {
    * @param listener
    */
   static removeListener(
-    type: keyof RafTickerEventMap,
+    type: keyof RAFTickerEventMap,
     listener: (event: RAFTickerEventContext) => void
   ): void {
     this._dispatcher.removeListener(type, listener);
@@ -88,7 +88,7 @@ export class RAFTicker {
    * @param event
    */
   public static emit(
-    type: keyof RafTickerEventMap,
+    type: keyof RAFTickerEventMap,
     event: RAFTickerEventContext
   ): void {
     this._dispatcher.emit(type, event);
