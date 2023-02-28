@@ -1,7 +1,7 @@
 export interface RAFTickerEventMap {
-  onBeforeTick: RAFTickerEventContext;
-  tick: RAFTickerEventContext;
-  onAfterTick: RAFTickerEventContext;
+  onBeforeTick: (e: RAFTickerEventContext) => void;
+  tick: (e: RAFTickerEventContext) => void;
+  onAfterTick: (e: RAFTickerEventContext) => void;
 }
 
 export class RAFTickerEventContext {

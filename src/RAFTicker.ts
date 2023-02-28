@@ -105,9 +105,15 @@ export class RAFTicker {
     }
     const delta = timestamp - RAFTicker._lastUpdateTimestamp;
 
-    RAFTicker.emit("onBeforeTick", new RAFTickerEventContext(timestamp, delta));
-    RAFTicker.emit("tick", new RAFTickerEventContext(timestamp, delta));
-    RAFTicker.emit("onAfterTick", new RAFTickerEventContext(timestamp, delta));
+    this._dispatcher.emit(
+      "onBeforeTick",
+      new RAFTickerEventContext(timestamp, delta)
+    );
+    this._dispatcher.emit("tick", new RAFTickerEventContext(timestamp, delta));
+    this._dispatcher.emit(
+      "onAfterTick",
+      new RAFTickerEventContext(timestamp, delta)
+    );
 
     RAFTicker._lastUpdateTimestamp = timestamp;
   }
