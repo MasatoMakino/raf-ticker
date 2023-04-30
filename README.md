@@ -26,13 +26,13 @@ npm i @masatomakino/raf-ticker -D
 ### How to use
 
 ```js
-import { RAFTicker, RAFTickerEventType } from "@masatomakino/raf-ticker";
+import { RAFTicker } from "@masatomakino/raf-ticker";
 ```
 
 Just import and `RAFTicker` starts.
 
 ```js
-RAFTicker.on(RAFTickerEventType.tick, (e) => {
+RAFTicker.on("tick", (e) => {
   console.log(e);
 });
 ```
