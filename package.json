@@ -16,7 +16,7 @@
   "author": "MasatoMakino <unagiinu.g@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "eventemitter3": "^4.0.7"
+    "eventemitter3": "^5.0.1"
   },
   "devDependencies": {
     "@masatomakino/gulptask-demo-page": "^0.6.4",
