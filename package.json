@@ -19,7 +19,7 @@
     "eventemitter3": "^5.0.1"
   },
   "devDependencies": {
-    "@masatomakino/gulptask-demo-page": "^0.6.4",
+    "@masatomakino/gulptask-demo-page": "^0.7.0",
     "@types/jest": "^29.5.1",
     "browser-sync": "^2.29.1",
     "husky": "^8.0.3",
