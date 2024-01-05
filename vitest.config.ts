@@ -9,11 +9,6 @@ export default defineConfig({
         resources: "usable",
       },
     },
-    poolOptions: {
-      threads: {
-        singleThread: true,
-      },
-    },
     coverage: {
       provider: "istanbul",
       reporter: ["text", "lcov"],
