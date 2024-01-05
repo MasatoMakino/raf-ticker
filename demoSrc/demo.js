@@ -1,4 +1,4 @@
-import { RAFTicker } from "..";
+import { RAFTicker } from "../esm/index.js";
 
 export class Demo {
   constructor() {

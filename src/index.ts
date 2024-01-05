@@ -1,2 +1,2 @@
-export * from "./RAFTicker";
-export * from "./RAFTickerEvent";
+export * from "./RAFTicker.js";
+export * from "./RAFTickerEvent.js";

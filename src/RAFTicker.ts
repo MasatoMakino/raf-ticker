@@ -1,5 +1,5 @@
-import EventEmitter from "eventemitter3";
-import { RAFTickerEventMap, RAFTickerEventContext } from "./RAFTickerEvent";
+import { EventEmitter } from "eventemitter3";
+import { RAFTickerEventMap, RAFTickerEventContext } from "./RAFTickerEvent.js";
 
 export class RAFTicker {
   private static _dispatcher: EventEmitter<RAFTickerEventMap>;
@@ -33,7 +33,7 @@ export class RAFTicker {
 
   static addListener(
     type: keyof RAFTickerEventMap,
-    listener: (event: RAFTickerEventContext) => void
+    listener: (event: RAFTickerEventContext) => void,
   ): void {
     this._dispatcher.on(type, listener);
   }
@@ -53,7 +53,7 @@ export class RAFTicker {
    */
   static hasListener(
     type: keyof RAFTickerEventMap,
-    listener: (event: RAFTickerEventContext) => void
+    listener: (event: RAFTickerEventContext) => void,
   ): boolean {
     const listeners = this._dispatcher.listeners(type);
     return listeners.includes(listener);
@@ -67,7 +67,7 @@ export class RAFTicker {
    */
   static removeListener(
     type: keyof RAFTickerEventMap,
-    listener: (event: RAFTickerEventContext) => void
+    listener: (event: RAFTickerEventContext) => void,
   ): void {
     this._dispatcher.removeListener(type, listener);
   }
@@ -89,7 +89,7 @@ export class RAFTicker {
    */
   public static emit(
     type: keyof RAFTickerEventMap,
-    event: RAFTickerEventContext
+    event: RAFTickerEventContext,
   ): void {
     this._dispatcher.emit(type, event);
   }
@@ -107,12 +107,12 @@ export class RAFTicker {
 
     this._dispatcher.emit(
       "onBeforeTick",
-      new RAFTickerEventContext(timestamp, delta)
+      new RAFTickerEventContext(timestamp, delta),
     );
     this._dispatcher.emit("tick", new RAFTickerEventContext(timestamp, delta));
     this._dispatcher.emit(
       "onAfterTick",
-      new RAFTickerEventContext(timestamp, delta)
+      new RAFTickerEventContext(timestamp, delta),
     );
 
     RAFTicker._lastUpdateTimestamp = timestamp;
