@@ -1,3 +1,5 @@
+import { vi } from "vitest";
+
 /**
  * Based on : https://stackoverflow.com/a/62282721
  *
@@ -9,6 +11,22 @@ class RequestAnimationFrameMockSession {
   private handleCounter: number = 0;
   private queue: Map<number, Function> = new Map();
   private _now: number = 0;
+
+  private mockRAF = vi
+    .spyOn(window, "requestAnimationFrame")
+    .mockImplementation((callback) => {
+      return requestAnimationFrameMock.requestAnimationFrame(callback);
+    });
+  private mockCancelAnimationFrame = vi
+    .spyOn(window, "cancelAnimationFrame")
+    .mockImplementation((handle) => {
+      requestAnimationFrameMock.cancelAnimationFrame(handle);
+    });
+  private mockNow = vi
+    .spyOn(window.performance, "now")
+    .mockImplementation(() => {
+      return requestAnimationFrameMock.now();
+    });
 
   public now(): number {
     return this._now;
@@ -50,18 +68,11 @@ class RequestAnimationFrameMockSession {
     this.queue.clear();
     this.handleCounter = 0;
     this._now = 0;
+
+    this.mockCancelAnimationFrame.mockClear();
+    this.mockRAF.mockClear();
+    this.mockNow.mockClear();
   }
 }
 
 export const requestAnimationFrameMock = new RequestAnimationFrameMockSession();
-window.requestAnimationFrame =
-  requestAnimationFrameMock.requestAnimationFrame.bind(
-    requestAnimationFrameMock
-  );
-window.cancelAnimationFrame =
-  requestAnimationFrameMock.cancelAnimationFrame.bind(
-    requestAnimationFrameMock
-  );
-window.performance.now = requestAnimationFrameMock.now.bind(
-  requestAnimationFrameMock
-);
