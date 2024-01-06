@@ -1,6 +1,6 @@
 {
   "name": "@masatomakino/raf-ticker",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "Simple ticker with requestAnimationFrame.",
   "type": "module",
   "exports": {
