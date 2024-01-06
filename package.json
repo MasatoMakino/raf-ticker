@@ -2,11 +2,15 @@
   "name": "@masatomakino/raf-ticker",
   "version": "0.5.3",
   "description": "Simple ticker with requestAnimationFrame.",
-  "main": "lib/index.js",
-  "module": "esm/index.js",
-  "types": "lib/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./esm/index.d.ts",
+      "default": "./esm/index.js"
+    }
+  },
+  "types": "esm/index.d.ts",
   "files": [
-    "lib",
     "esm"
   ],
   "repository": {
@@ -40,11 +44,11 @@
     "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
     "build": "npm run buildTS && npm run demo && npm run typedocs",
     "demo": "npx @masatomakino/gulptask-demo-page",
-    "buildTS": "tsc --project tsconfig.cjs.json & tsc --project tsconfig.esm.json",
+    "buildTS": "tsc",
     "typedocs": "npx typedoc --out ./docs/api src/index.ts",
     "server": "browser-sync ./docs/demo -w",
     "watch:demo": "npm run demo -- -W",
-    "watch:tsc": "tsc -W --incremental --project tsconfig.cjs.json & tsc -W --incremental --project tsconfig.esm.json"
+    "watch:tsc": "tsc -W --incremental"
   },
   "bugs": {
     "url": "https://github.com/MasatoMakino/RAF-ticker/issues"
@@ -52,7 +56,7 @@
   "homepage": "https://github.com/MasatoMakino/RAF-ticker#readme",
   "directories": {
     "doc": "docs",
-    "lib": "lib"
+    "esm": "esm"
   },
   "lint-staged": {
     "*.{js,ts,css,md}": "prettier --write"

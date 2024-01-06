@@ -1,6 +1,6 @@
 import { describe, beforeEach, test, expect, vi } from "vitest";
-import { RAFTicker, RAFTickerEventContext } from "../src";
-import { requestAnimationFrameMock } from "./RequestAnimationFrameMockSession";
+import { RAFTicker, RAFTickerEventContext } from "../src/index.js";
+import { requestAnimationFrameMock } from "./RequestAnimationFrameMockSession.js";
 
 describe("raf", () => {
   beforeEach(() => {
