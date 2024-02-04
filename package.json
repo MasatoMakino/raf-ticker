@@ -27,7 +27,7 @@
     "@types/jest": "^29.5.1",
     "@vitest/coverage-istanbul": "^1.1.2",
     "browser-sync": "^3.0.2",
-    "husky": "^8.0.3",
+    "husky": "^9.0.10",
     "jsdom": "^23.0.1",
     "lint-staged": "^15.0.2",
     "prettier": "^3.0.1",
@@ -38,7 +38,7 @@
   "scripts": {
     "test": "vitest",
     "coverage": "vitest --coverage --run",
-    "prepare": "husky install",
+    "prepare": "husky",
     "preversion": "git checkout main && git pull && npm ci && npx vitest --run",
     "postversion": "git add package.json package-lock.json && git checkout -b version/$(git describe --tags --abbrev=0)",
     "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
