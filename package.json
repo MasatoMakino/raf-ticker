@@ -50,7 +50,7 @@
     "version-add-package-files": "git add package.json package-lock.json",
     "version-checkout": "git checkout -b version/$(git describe --tags --abbrev=0)",
     "version-push": "git push --set-upstream origin version/$(git describe --tags --abbrev=0)",
-    "version-pull-request": "gh pr create --fill --base main --head version/$(git describe --tags --abbrev=0) | grep -o 'https.*github.*' | xargs gh pr view --web",
+    "version-pull-request": "gh pr create --fill --base main --head version/$(git describe --tags --abbrev=0) && gh pr merge version/$(git describe --tags --abbrev=0) --merge --auto",
     "release": "npm run release-check-merged && npm run release-check-tag-exists && npm run release-push-tags && npm run release-create-draft && npm run release-open-draft",
     "release-check-merged": "git fetch origin && git branch --merged origin/main | grep version/$(git describe --tags --abbrev=0) || (echo 'Branch not merged' && exit 1)",
     "release-check-tag-exists": "git fetch --tags && (git ls-remote --tags origin | grep -q $(git describe --tags --abbrev=0) && echo 'Tag already exists' && exit 1 || exit 0)",
