@@ -9,8 +9,15 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 5 # Control overall update frequency for GitHub Actions
 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 5
+      semver-major-days: 30  # Breaking changes require careful review
+      semver-minor-days: 7   # Feature additions need verification
+      semver-patch-days: 3   # Bug fixes and security patches applied quickly
