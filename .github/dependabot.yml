@@ -10,14 +10,14 @@ updates:
     schedule:
       interval: "daily"
     cooldown:
-      default-days: 5 # Control overall update frequency for GitHub Actions
+      default-days: 7 # Control overall update frequency for GitHub Actions
 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
     cooldown:
-      default-days: 5
+      default-days: 7
       semver-major-days: 30  # Breaking changes require careful review
       semver-minor-days: 7   # Feature additions need verification
-      semver-patch-days: 3   # Bug fixes and security patches applied quickly
+      semver-patch-days: 7   # Bug fixes and security patches applied quickly
