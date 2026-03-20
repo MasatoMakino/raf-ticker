@@ -24,11 +24,9 @@
   },
   "devDependencies": {
     "@masatomakino/gulptask-demo-page": "^0.10.0",
-    "@vitest/coverage-istanbul": "^3.0.2",
+    "@vitest/coverage-istanbul": "^4.0.18",
     "browser-sync": "^3.0.2",
-    "husky": "^9.1.3",
     "jsdom": "^26.0.0",
-    "lint-staged": "^16.1.0",
     "prettier": "^3.3.3",
     "typedoc": "^0.28.0",
     "typescript": "^5.5.4"
@@ -36,27 +34,16 @@
   "scripts": {
     "test": "vitest",
     "coverage": "vitest --coverage --run",
-    "prepare": "husky",
     "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
     "build": "npm run buildTS && npm run demo && npm run typedocs",
     "demo": "npx @masatomakino/gulptask-demo-page",
     "buildTS": "tsc",
     "typedocs": "npx typedoc --out ./docs/api src/index.ts",
-    "server": "browser-sync ./docs/demo -w",
+    "server": "browser-sync ./docs/demo -w --port 3000 --no-open",
     "watch:demo": "npm run demo -- -W",
     "watch:tsc": "tsc -W --incremental",
-    "preversion": "git checkout main && git pull && npm ci && npx vitest --run",
-    "postversion": "npm run version-add-package-files && npm run version-checkout && npm run version-push && npm run version-pull-request",
-    "version-add-package-files": "git add package.json package-lock.json",
-    "version-checkout": "git checkout -b version/$(git describe --tags --abbrev=0)",
-    "version-push": "git push --set-upstream origin version/$(git describe --tags --abbrev=0)",
-    "version-pull-request": "gh pr create --fill --base main --head version/$(git describe --tags --abbrev=0) && gh pr merge version/$(git describe --tags --abbrev=0) --merge --auto",
-    "release": "npm run release-check-merged && npm run release-check-tag-exists && npm run release-push-tags && npm run release-create-draft && npm run release-open-draft",
-    "release-check-merged": "git fetch origin && git branch --merged origin/main | grep version/$(git describe --tags --abbrev=0) || (echo 'Branch not merged' && exit 1)",
-    "release-check-tag-exists": "git fetch --tags && (git ls-remote --tags origin | grep -q $(git describe --tags --abbrev=0) && echo 'Tag already exists' && exit 1 || exit 0)",
-    "release-push-tags": "git push origin $(git describe --tags --abbrev=0)",
-    "release-create-draft": "gh release create $(git describe --tags --abbrev=0) --generate-notes --verify-tag --draft",
-    "release-open-draft": "gh release view $(git describe --tags --abbrev=0) --web"
+    "pre-commit": "prettier --write --ignore-unknown",
+    "pre-push": "vitest --run && npm run buildTS"
   },
   "bugs": {
     "url": "https://github.com/MasatoMakino/RAF-ticker/issues"
@@ -65,8 +52,5 @@
   "directories": {
     "doc": "docs",
     "esm": "esm"
-  },
-  "lint-staged": {
-    "*.{js,ts,css,md}": "prettier --write"
   }
 }

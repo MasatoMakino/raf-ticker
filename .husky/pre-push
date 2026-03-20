@@ -1,2 +1,0 @@
-npx vitest --run
-npm run buildTS
