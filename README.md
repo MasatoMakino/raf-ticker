@@ -2,12 +2,10 @@
 
 > A simple ticker with requestAnimationFrame.
 
-[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![CI_Main](https://github.com/MasatoMakino/raf-ticker/actions/workflows/ci_main.yml/badge.svg)](https://github.com/MasatoMakino/raf-ticker/actions/workflows/ci_main.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/1b76d40aaf6bf61c28f0/maintainability)](https://codeclimate.com/github/MasatoMakino/raf-ticker/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/1b76d40aaf6bf61c28f0/test_coverage)](https://codeclimate.com/github/MasatoMakino/raf-ticker/test_coverage)
-
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=MasatoMakino&repo=raf-ticker&show_owner=true)](https://github.com/MasatoMakino/raf-ticker)
+[![npm version](https://img.shields.io/npm/v/@masatomakino/raf-ticker.svg?style=flat)](https://www.npmjs.com/package/@masatomakino/raf-ticker)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github&style=flat)](https://github.com/MasatoMakino/RAF-ticker)
 
 ## Demo
 
@@ -51,6 +49,14 @@ If you use multiple animation modules together, setting up a render loop in each
 
 > **Warning**
 > Performance improvement from unifying requestAnimationFrame depends on the browser implementation. In future versions of the browser, this approach may result in performance degradation. Be sure to check performance in your actual environment.
+
+## Development
+
+```bash
+npm run start:dev
+```
+
+A [DevContainer](https://containers.dev/) configuration is included for isolating the npm execution environment. All commands work without it.
 
 ## License
 
