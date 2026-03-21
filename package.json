@@ -35,10 +35,10 @@
     "coverage": "vitest --coverage --run",
     "start:dev": "npm run server & npm run watch:tsc",
     "build": "npm run buildTS && npm run demo && npm run typedocs",
-    "demo": "npx demo-showcase build",
+    "demo": "npx demo-showcase build --distDir ./docs/demo",
     "buildTS": "tsc",
     "typedocs": "npx typedoc --out ./docs/api src/index.ts",
-    "server": "npx demo-showcase dev --host 0.0.0.0",
+    "server": "npx demo-showcase dev --host 0.0.0.0 --port 3456",
     "watch:tsc": "tsc -W --incremental",
     "pre-commit": "prettier --write --ignore-unknown",
     "pre-push": "vitest --run && npm run buildTS"
