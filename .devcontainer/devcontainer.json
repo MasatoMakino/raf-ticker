@@ -8,7 +8,7 @@
     "--cap-drop=ALL",
     "--name=${localWorkspaceFolderBasename}-npm-runner",
     "-p",
-    "127.0.0.1:0:3000"
+    "127.0.0.1:0:3456"
   ],
   "postCreateCommand": "npm ci",
   "postStartCommand": "npm audit --audit-level=moderate || true",
