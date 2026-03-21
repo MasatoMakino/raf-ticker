@@ -23,9 +23,8 @@
     "eventemitter3": "^5.0.1"
   },
   "devDependencies": {
-    "@masatomakino/gulptask-demo-page": "^0.10.0",
+    "@masatomakino/demo-showcase": "^0.1.2",
     "@vitest/coverage-istanbul": "^4.0.18",
-    "browser-sync": "^3.0.2",
     "jsdom": "^28.1.0",
     "prettier": "^3.3.3",
     "typedoc": "^0.28.0",
@@ -34,13 +33,12 @@
   "scripts": {
     "test": "vitest",
     "coverage": "vitest --coverage --run",
-    "start:dev": "npm run server & npm run watch:tsc & npm run watch:demo",
+    "start:dev": "npm run server & npm run watch:tsc",
     "build": "npm run buildTS && npm run demo && npm run typedocs",
-    "demo": "npx @masatomakino/gulptask-demo-page",
+    "demo": "npx demo-showcase build",
     "buildTS": "tsc",
     "typedocs": "npx typedoc --out ./docs/api src/index.ts",
-    "server": "browser-sync ./docs/demo -w --port 3000 --no-open",
-    "watch:demo": "npm run demo -- -W",
+    "server": "npx demo-showcase dev --host 0.0.0.0",
     "watch:tsc": "tsc -W --incremental",
     "pre-commit": "prettier --write --ignore-unknown",
     "pre-push": "vitest --run && npm run buildTS"
