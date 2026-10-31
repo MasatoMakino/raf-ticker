@@ -51,4 +51,4 @@ Vitest with jsdom environment. Tests in `__test__/` use a custom `RequestAnimati
 
 ## CI
 
-GitHub Actions matrix tests on Node 20/22/24. npm publishing uses OIDC trusted publishing triggered manually via `workflow_dispatch` after tag validation.
+GitHub Actions matrix tests on Node 24/26. npm publishing uses OIDC trusted publishing triggered manually via `workflow_dispatch` after tag validation.
