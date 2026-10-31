@@ -3,8 +3,8 @@ import { RAFTickerEventMap, RAFTickerEventContext } from "./RAFTickerEvent.js";
 
 export class RAFTicker {
   private static _dispatcher: EventEmitter<RAFTickerEventMap>;
-  private static _lastUpdateTimestamp: number;
-  protected static _id: number;
+  private static _lastUpdateTimestamp: number | undefined;
+  protected static _id: number | undefined;
 
   public static initialize() {
     if (this._dispatcher == null) {
@@ -26,7 +26,9 @@ export class RAFTicker {
     }
   }
   public static stop() {
-    cancelAnimationFrame(RAFTicker._id);
+    if (RAFTicker._id !== undefined) {
+      cancelAnimationFrame(RAFTicker._id);
+    }
     this._id = undefined;
     this._lastUpdateTimestamp = undefined;
   }
@@ -94,12 +96,12 @@ export class RAFTicker {
     this._dispatcher.emit(type, event);
   }
 
-  private static onTick = (timestamp?: number) => {
+  private static onTick = (timestamp: number) => {
     this.emitTickEvent(timestamp);
     RAFTicker._id = requestAnimationFrame(RAFTicker.onTick);
   };
 
-  public static emitTickEvent(timestamp?: number) {
+  public static emitTickEvent(timestamp: number) {
     if (RAFTicker._lastUpdateTimestamp == null) {
       RAFTicker._lastUpdateTimestamp = timestamp;
     }

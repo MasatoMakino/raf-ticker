@@ -14,7 +14,7 @@ All npm/npx commands MUST run inside DevContainer. Never run npm directly on the
 # TypeScript compile
 devcontainer exec --workspace-folder . npm run buildTS
 
-# Full build (TypeScript + demo + TypeDoc)
+# Full build (TypeScript + demo)
 devcontainer exec --workspace-folder . npm run build
 
 # Run tests
