@@ -37,8 +37,6 @@ RAFTicker.on("tick", (e) => {
 
 `RAFTicker` dispatches events every frame.
 
-[API document](https://masatomakino.github.io/raf-ticker/api/index.html)
-
 ### Why is this package necessary?
 
 Unification of requestAnimationFrame improves rendering performance.
