@@ -51,10 +51,10 @@ If you use multiple animation modules together, setting up a render loop in each
 ## Development
 
 ```bash
-npm run start:dev
+pnpm run start:dev
 ```
 
-A [DevContainer](https://containers.dev/) configuration is included for isolating the npm execution environment. All commands work without it.
+A [DevContainer](https://containers.dev/) configuration is included for isolating the pnpm execution environment. All commands work without it.
 
 ## License
 

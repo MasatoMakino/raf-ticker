@@ -3,6 +3,7 @@
   "version": "0.6.4",
   "description": "Simple ticker with requestAnimationFrame.",
   "type": "module",
+  "packageManager": "pnpm@12.16.1",
   "exports": {
     ".": {
       "types": "./esm/index.d.ts",
@@ -27,19 +28,21 @@
     "@vitest/coverage-istanbul": "^5.0.3",
     "jsdom": "^30.1.1",
     "prettier": "^3.3.3",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
   },
   "scripts": {
     "test": "vitest",
     "coverage": "vitest --coverage --run",
-    "start:dev": "npm run server & npm run watch:tsc",
-    "build": "npm run buildTS && npm run demo",
-    "demo": "npx demo-showcase build --distDir ./docs/demo",
+    "start:dev": "pnpm run server & pnpm run watch:tsc",
+    "build": "pnpm run buildTS && pnpm run demo",
+    "demo": "demo-showcase build --distDir ./docs/demo",
     "buildTS": "tsc",
-    "server": "npx demo-showcase dev --host 0.0.0.0 --port 3456",
+    "server": "demo-showcase dev --host 0.0.0.0 --port 3456",
     "watch:tsc": "tsc -W --incremental",
     "pre-commit": "prettier --write --ignore-unknown",
-    "pre-push": "vitest --run && npm run buildTS"
+    "pre-push": "vitest --run && pnpm run buildTS"
   },
   "bugs": {
     "url": "https://github.com/MasatoMakino/RAF-ticker/issues"
