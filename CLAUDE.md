@@ -54,4 +54,4 @@ Vitest with jsdom environment. Tests in `__test__/` use a custom `RequestAnimati
 
 ## CI
 
-GitHub Actions matrix tests on Node 24/26. npm publishing uses OIDC trusted publishing triggered manually via `workflow_dispatch` after tag validation.
+GitHub Actions matrix tests on Node 24/26. A published GitHub Release triggers `npm_publish.yml`, which stages the package on npm with OIDC trusted publishing (`npm stage publish`). A maintainer approves the staged version on npm with 2FA. See `RELEASING.md`.
