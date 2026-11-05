@@ -35,7 +35,7 @@ RAFTicker.on("tick", (e) => {
 });
 ```
 
-`RAFTicker` dispatches events every frame.
+`RAFTicker` dispatches three events every frame, in this order: `onBeforeTick`, `tick`, and `onAfterTick`. Each listener receives a `RAFTickerEventContext` with `timestamp` (the frame timestamp in milliseconds) and `delta` (the milliseconds since the previous frame).
 
 ### Why is this package necessary?
 
