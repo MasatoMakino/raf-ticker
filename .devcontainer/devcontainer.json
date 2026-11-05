@@ -1,6 +1,6 @@
 {
   "name": "${localWorkspaceFolderBasename} npm Runner",
-  "image": "node:24-bookworm-slim",
+  "image": "node:26-bookworm-slim",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,consistency=cached",
   "remoteUser": "node",
@@ -14,6 +14,6 @@
   "postStartCommand": "npm audit --audit-level=moderate || true",
   "containerEnv": {
     "NODE_ENV": "development",
-    "NPM_CONFIG_AUDIT": "true"
+    "NPM_CONFIG_IGNORE_SCRIPTS": "true"
   }
 }
