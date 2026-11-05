@@ -8,6 +8,7 @@ This document describes the release process for maintainers with publish permiss
 - GPG or SSH signing key configured for Git
 - GitHub CLI (`gh`) with authentication
 - DevContainer configuration (for quality checks)
+- An npm account with publish access to `@masatomakino/raf-ticker` and 2FA enabled
 
 ## Steps
 
@@ -34,25 +35,21 @@ Create a GitHub Release for the tag:
 gh release create v<version> --generate-notes
 ```
 
-### 4. Trigger npm publish
+When the release is published, the `Publish to npm` workflow (`npm_publish.yml`) packs the package and stages it on npm with `npm stage publish`. npm does not make a staged version available until a maintainer approves it.
 
-The npm publish workflow is triggered manually via `workflow_dispatch`. It must be dispatched from the tag ref:
+### 4. Approve the staged version on npm
 
-**CLI:**
+1. Open the log of the `publish` job and note the shasum of the staged package.
+2. On npmjs.com, open the staged packages page of your account.
+3. Check that the shasum of the staged version matches the shasum from the job log.
+4. Click **Approve** and complete the 2FA challenge. To approve from the CLI instead, run `npm stage approve <stage-id>`.
 
-```bash
-gh workflow run npm_publish.yml --ref v<version>
-```
-
-**Web UI:**
-
-Actions > "Publish to npm" > select the tag from "Use workflow from" dropdown > Run workflow
+npm checks a staged version for some tens of seconds after staging and rejects an approval during the check. If the approval fails, wait about a minute and try again. If the shasum does not match, do not approve the version.
 
 ### Validation
 
-The publish workflow automatically verifies:
+Before the workflow stages the package, its `build` job verifies the following:
 
-- The dispatch ref is a valid semver tag (`v*.*.*`)
-- The tag exists and its commit SHA matches the dispatch SHA
-- A published (non-draft) GitHub Release exists for the tag
-- `package.json` version matches the tag version
+- The release tag points to the checked-out commit
+- The commit is on the default branch
+- The `package.json` version is in `X.Y.Z` format, and the tag is `v<version>`
